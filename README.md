@@ -4,6 +4,7 @@
 - [Seção 01 - Introdução](https://github.com/romulovieira777/SQL_e_Banco_de_Dados_para_DataScience_sem_mist-rios/tree/main/Sec%C3%A3o_01_Introdu%C3%A7%C3%A3o)
 - [Seção 02 - Criando e Configurando o Banco de Dados](https://github.com/romulovieira777/SQL_e_Banco_de_Dados_para_DataScience_sem_mist-rios/tree/main/Se%C3%A7%C3%A3o_02_Criando_e_Configurando_o_Banco_de_Dados)
 - [Seção 03 - Funções de Agregação - Introdução](https://github.com/romulovieira777/SQL_e_Banco_de_Dados_para_DataScience_sem_mist-rios/tree/main/Se%C3%A7%C3%A3o_03_Fun%C3%A7%C3%B5es_de_Agrega%C3%A7%C3%A3o_Introdu%C3%A7%C3%A3oução])
+- [Seção 04 - Medidas Estatísticas](https://github.com/romulovieira777/SQL_e_Banco_de_Dados_para_DataScience_sem_mist-rios/tree/main/Se%C3%A7%C3%A3o_04_Medidas_Estat%C3%ADsticas)
 
 
 Link para o curso na [Udemy](https://www.udemy.com/course/sql-banco-de-dados-datascience/)
