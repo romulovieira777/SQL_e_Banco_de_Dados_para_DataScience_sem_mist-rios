@@ -9,7 +9,7 @@ CREATE TABLE MAQUINAS
 	MAQUINA VARCHAR(20)
   , DIA INT
   , QTD NUMERIC(10, 2)
-)
+);
 
 COPY MAQUINAS
 FROM 'C:\Users\Romulo Vieira\Downloads\LogMaquinas.csv'

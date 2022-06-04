@@ -5,7 +5,7 @@ SELECT
 	*
 FROM
 	funcionarios
-LIMIT 10
+LIMIT 10;
 
 -- Qual o gasto total de salário pago pela empresa?
 SELECT
@@ -64,5 +64,3 @@ GROUP BY
 	departamento
 ORDER BY
 	3 DESC;
-
-
