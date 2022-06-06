@@ -1,0 +1,242 @@
+/*
+	Podemos criar uma tabela com o resultado de uma querie e essa é a forma de realizar uma modelagem
+	colunar CREATE TABLE AS SELECT
+*/
+
+CREATE TABLE genero(
+	idgenero INT PRIMARY KEY
+  , nome VARCHAR(30)
+);
+
+
+INSERT INTO 
+	GENERO 
+VALUES(
+	1
+  ,'FANTASIA'
+);
+
+INSERT INTO 
+	GENERO 
+VALUES(
+	2
+  ,'AVENTURA'
+);
+
+INSERT INTO 
+	GENERO 
+VALUES(
+	3
+  ,'SUSPENSE'
+);
+
+INSERT INTO 
+	GENERO 
+VALUES(
+	4
+  ,'AÇÃO'
+);
+
+INSERT INTO 
+	GENERO 
+VALUES(
+	5
+  ,'DRAMA');
+
+
+CREATE TABLE filme(
+	idfilme INT PRIMARY KEY
+  , nome VARCHAR(50)
+  , ano INT
+  , id_genero INT
+  , FOREIGN KEY(id_genero) REFERENCES genero(idgenero)
+);
+
+INSERT INTO 
+	FILME
+VALUES(
+	100
+   ,'KILL BILL I'
+   , 2007
+   , 2
+);
+
+INSERT INTO 
+	FILME
+VALUES(
+	200
+   ,'DRACULA'
+   , 1998
+   , 3
+);
+
+INSERT INTO 
+	FILME
+VALUES(
+	300
+   ,'SENHOR DOS ANEIS'
+   , 2008
+   , 1
+);
+
+INSERT INTO 
+	FILME
+VALUES(
+	400
+  , 'UM SONHO DE LIBERDADE'
+  , 2008
+  , 5
+);
+
+INSERT INTO 
+	FILME
+VALUES(
+	500
+  , 'OS BAD BOYS'
+  , 2008
+  , 4
+);
+
+INSERT INTO 
+	FILME
+VALUES(
+	600
+   , 'GUERRA CIVIL'
+   , 2016
+   , 2
+);
+
+INSERT INTO 
+	FILME
+VALUES(
+	700
+   , 'CADILLAC RECORDS'
+   , 2009
+   , 5
+);
+
+INSERT INTO 
+	FILME
+VALUES(
+	800
+  , 'O HOBBIT'
+  , 2008
+  , 1
+);
+   
+INSERT INTO 
+	FILME
+VALUES(
+	900
+  , 'TOMATES VERDES FRITOS'
+  , 2008
+  , 5
+);
+
+INSERT INTO 
+	FILME
+VALUES(
+	1000
+  , 'CORRIDA MORTAL'
+  , 2008
+  , 4
+);
+
+CREATE TABLE locacao(
+	idlocacao INT PRIMARY KEY
+  , data DATE
+  , midia INT
+  , dias INT
+  , id_filme INT
+  , FOREIGN KEY (id_filme) REFERENCES filme(idfilme)
+);
+
+INSERT INTO LOCACAO VALUES(1, '01/08/2019', 23, 3, 100);
+INSERT INTO LOCACAO VALUES(2, '01/02/2019', 56, 1, 400);
+INSERT INTO LOCACAO VALUES(3, '02/07/2019', 23, 3, 400);
+INSERT INTO LOCACAO VALUES(4, '02/02/2019', 43, 1, 500);
+INSERT INTO LOCACAO VALUES(5, '02/02/2019', 23, 2, 100);
+INSERT INTO LOCACAO VALUES(6, '03/07/2019', 76, 3, 700);
+INSERT INTO LOCACAO VALUES(7, '03/02/2019', 45, 1, 700);
+INSERT INTO LOCACAO VALUES(8, '04/08/2019', 89, 3, 100);
+INSERT INTO LOCACAO VALUES(9, '04/02/2019', 23, 3, 800);
+INSERT INTO LOCACAO VALUES(10, '05/07/2019', 23, 3, 500);
+INSERT INTO LOCACAO VALUES(11, '05/02/2019', 38, 3, 800);
+INSERT INTO LOCACAO VALUES(12, '01/10/2019', 56, 1, 100);
+INSERT INTO LOCACAO VALUES(13, '06/12/2019', 23, 3, 400);
+INSERT INTO LOCACAO VALUES(14, '01/02/2019', 56, 2, 300);
+INSERT INTO LOCACAO VALUES(15, '04/10/2019', 76, 3, 300);
+INSERT INTO LOCACAO VALUES(16, '01/09/2019', 32, 2, 400);
+INSERT INTO LOCACAO VALUES(17, '08/02/2019', 89, 3, 100);
+INSERT INTO LOCACAO VALUES(18, '01/02/2019', 23, 1, 200);
+INSERT INTO LOCACAO VALUES(19, '08/09/2019', 45, 3, 300);
+INSERT INTO LOCACAO VALUES(20, '01/12/2019', 89, 1, 400);
+INSERT INTO LOCACAO VALUES(21, '09/07/2019', 23, 3, 1000);
+INSERT INTO LOCACAO VALUES(22, '01/12/2019', 21, 3, 1000);
+INSERT INTO LOCACAO VALUES(23, '01/02/2019', 34, 2, 100);
+INSERT INTO LOCACAO VALUES(24, '09/08/2019', 67, 1, 1000);
+INSERT INTO LOCACAO VALUES(25, '01/02/2019', 76, 3, 1000);
+INSERT INTO LOCACAO VALUES(26, '01/02/2019', 66, 3, 200);
+INSERT INTO LOCACAO VALUES(27, '09/12/2019', 90, 1, 400);
+INSERT INTO LOCACAO VALUES(28, '03/02/2019', 23, 3, 100);
+INSERT INTO LOCACAO VALUES(29, '01/12/2019', 65, 5, 1000);
+INSERT INTO LOCACAO VALUES(30, '03/08/2019', 43, 1, 1000);
+INSERT INTO LOCACAO VALUES(31, '01/02/2019', 27, 31 ,200);
+
+
+-- Select para trazer os dados
+SELECT
+	filme.nome
+  , genero.nome
+  , locacao.data
+  , locacao.dias
+  , locacao.midia
+FROM
+	genero
+INNER JOIN
+	filme
+ON
+	genero.idgenero = filme.id_genero
+INNER JOIN
+	locacao
+ON
+	locacao.id_filme = filme.idfilme;
+
+
+-- Criando uma tabela
+CREATE TABLE
+	rel_locadora
+AS
+	SELECT
+		filme.nome 		AS "Filme"
+	  , genero.nome 	AS "Genero"
+	  , locacao.data 	AS "Data"
+	  , locacao.dias 	AS "Dias"
+	  , locacao.midia 	AS "Midia"
+	FROM
+		genero
+	INNER JOIN
+		filme
+	ON
+		genero.idgenero = filme.id_genero
+	INNER JOIN
+		locacao
+	ON
+		locacao.id_filme = filme.idfilme;
+
+SELECT
+	*
+FROM
+	rel_locadora;
+
+
+-- Exportando para csv
+COPY
+	rel_locadora
+TO 
+	'caminho'
+DELIMITER
+	';'
+CSV HEADER;
+	
+	
