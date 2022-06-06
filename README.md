@@ -1,10 +1,11 @@
-# SQL e Banco de Dados para DataScience, sem mist√©rios! üë®‚Äçüíª :bar_chart: :books: :game_die:
-## Curso de SQL e Banco de Dados para DataScience, sem mist√©rios! na [Udemy](https://www.udemy.com/course/sql-banco-de-dados-datascience/)
+# SQL e Banco de Dados para DataScience, sem mistÈrios! :bar_chart: :books: :game_die:
+## Curso de SQL e Banco de Dados para DataScience, sem mistÈrios! na [Udemy](https://www.udemy.com/course/sql-banco-de-dados-datascience/)
 ### :boom: Temas abordados durante o curso foram :rocket:
-- [Se√ß√£o 01 - Introdu√ß√£o](https://github.com/romulovieira777/SQL_e_Banco_de_Dados_para_DataScience_sem_mist-rios/tree/main/Sec%C3%A3o_01_Introdu%C3%A7%C3%A3o)
-- [Se√ß√£o 02 - Criando e Configurando o Banco de Dados](https://github.com/romulovieira777/SQL_e_Banco_de_Dados_para_DataScience_sem_mist-rios/tree/main/Se%C3%A7%C3%A3o_02_Criando_e_Configurando_o_Banco_de_Dados)
-- [Se√ß√£o 03 - Fun√ß√µes de Agrega√ß√£o - Introdu√ß√£o](https://github.com/romulovieira777/SQL_e_Banco_de_Dados_para_DataScience_sem_mist-rios/tree/main/Se%C3%A7%C3%A3o_03_Fun%C3%A7%C3%B5es_de_Agrega%C3%A7%C3%A3o_Introdu%C3%A7%C3%A3ou√ß√£o])
-- [Se√ß√£o 04 - Medidas Estat√≠sticas](https://github.com/romulovieira777/SQL_e_Banco_de_Dados_para_DataScience_sem_mist-rios/tree/main/Se%C3%A7%C3%A3o_04_Medidas_Estat%C3%ADsticas)
+- [SeÁ„o 01 - IntroduÁ„o](https://github.com/romulovieira777/SQL_e_Banco_de_Dados_para_DataScience_sem_mist-rios/tree/main/Sec%C3%A3o_01_Introdu%C3%A7%C3%A3o)
+- [SeÁ„o 02 - Criando e Configurando o Banco de Dados](https://github.com/romulovieira777/SQL_e_Banco_de_Dados_para_DataScience_sem_mist-rios/tree/main/Se%C3%A7%C3%A3o_02_Criando_e_Configurando_o_Banco_de_Dados)
+- [SeÁ„o 03 - FunÁıes de AgregaÁ„o - IntroduÁ„o](https://github.com/romulovieira777/SQL_e_Banco_de_Dados_para_DataScience_sem_mist-rios/tree/main/Se%C3%A7%C3%A3o_03_Fun%C3%A7%C3%B5es_de_Agrega%C3%A7%C3%A3o_Introdu%C3%A7%C3%A3ou√ß√£o])
+- [SeÁ„o 04 - Medidas EstatÌsticas](https://github.com/romulovieira777/SQL_e_Banco_de_Dados_para_DataScience_sem_mist-rios/tree/main/Se%C3%A7%C3%A3o_04_Medidas_Estat%C3%ADsticas)
+- [SeÁ„o 05 - Projeto Pr·tico: Automatizando um RelatÛrio]()
 
 
 Link para o curso na [Udemy](https://www.udemy.com/course/sql-banco-de-dados-datascience/)
