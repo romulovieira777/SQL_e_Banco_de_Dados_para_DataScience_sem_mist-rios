@@ -1,0 +1,143 @@
+-- Apagando a tabela
+DROP TABLE LOCACAO;
+
+
+-- Criando uma tabela
+CREATE TABLE LOCACAO(
+	IDLOCACAO INT PRIMARY KEY
+  , DATA TIMESTAMP
+  , MIDIA INT
+  , DIAS INT
+  , ID_FILME INT
+  , FOREIGN KEY(ID_FILME) REFERENCES FILME(IDFILME)
+
+);
+
+
+CREATE SEQUENCE SEQ_LOCACAO;
+
+
+-- Inserindo dados na tabela
+INSERT INTO LOCACAO VALUES(NEXTVAL('SEQ_LOCACAO'), '01/08/2018', 23, 3, 100);
+INSERT INTO LOCACAO VALUES(NEXTVAL('SEQ_LOCACAO'), '01/02/2018', 56, 1, 400);
+INSERT INTO LOCACAO VALUES(NEXTVAL('SEQ_LOCACAO'), '02/07/2018', 23, 3, 400);
+INSERT INTO LOCACAO VALUES(NEXTVAL('SEQ_LOCACAO'), '02/02/2018', 43, 1, 500);
+INSERT INTO LOCACAO VALUES(NEXTVAL('SEQ_LOCACAO'), '02/02/2018', 23, 2, 100);
+INSERT INTO LOCACAO VALUES(NEXTVAL('SEQ_LOCACAO'), '03/07/2018', 76, 3, 700);
+INSERT INTO LOCACAO VALUES(NEXTVAL('SEQ_LOCACAO'), '03/02/2018', 45, 1, 700);
+INSERT INTO LOCACAO VALUES(NEXTVAL('SEQ_LOCACAO'), '04/08/2018', 89, 3, 100);
+INSERT INTO LOCACAO VALUES(NEXTVAL('SEQ_LOCACAO'), '04/02/2018', 23, 3, 800);
+INSERT INTO LOCACAO VALUES(NEXTVAL('SEQ_LOCACAO'), '05/07/2018', 23, 3, 500);
+INSERT INTO LOCACAO VALUES(NEXTVAL('SEQ_LOCACAO'), '05/02/2018', 38, 3, 800);
+INSERT INTO LOCACAO VALUES(NEXTVAL('SEQ_LOCACAO'), '01/10/2018', 56, 1, 100);
+INSERT INTO LOCACAO VALUES(NEXTVAL('SEQ_LOCACAO'), '06/12/2018', 23, 3, 400);
+INSERT INTO LOCACAO VALUES(NEXTVAL('SEQ_LOCACAO'), '01/02/2018', 56, 2, 300);
+INSERT INTO LOCACAO VALUES(NEXTVAL('SEQ_LOCACAO'), '04/10/2018', 76, 3, 300);
+INSERT INTO LOCACAO VALUES(NEXTVAL('SEQ_LOCACAO'), '01/09/2018', 32, 2, 400);
+INSERT INTO LOCACAO VALUES(NEXTVAL('SEQ_LOCACAO'), '08/02/2018', 89, 3, 100);
+INSERT INTO LOCACAO VALUES(NEXTVAL('SEQ_LOCACAO'), '01/02/2018', 23, 1, 200);
+INSERT INTO LOCACAO VALUES(NEXTVAL('SEQ_LOCACAO'), '08/09/2018', 45, 3, 300);
+INSERT INTO LOCACAO VALUES(NEXTVAL('SEQ_LOCACAO'), '01/12/2018', 89, 1, 400);
+INSERT INTO LOCACAO VALUES(NEXTVAL('SEQ_LOCACAO'), '09/07/2018', 23, 3, 1000);
+INSERT INTO LOCACAO VALUES(NEXTVAL('SEQ_LOCACAO'), '01/12/2018', 21, 3, 1000);
+INSERT INTO LOCACAO VALUES(NEXTVAL('SEQ_LOCACAO'), '01/02/2018', 34, 2, 100);
+INSERT INTO LOCACAO VALUES(NEXTVAL('SEQ_LOCACAO'), '09/08/2018', 67, 1, 1000);
+INSERT INTO LOCACAO VALUES(NEXTVAL('SEQ_LOCACAO'), '01/02/2018', 76, 3, 1000);
+INSERT INTO LOCACAO VALUES(NEXTVAL('SEQ_LOCACAO'), '01/02/2018', 66, 3, 200);
+INSERT INTO LOCACAO VALUES(NEXTVAL('SEQ_LOCACAO'), '09/12/2018', 90, 1, 400);
+INSERT INTO LOCACAO VALUES(NEXTVAL('SEQ_LOCACAO'), '03/02/2018', 23, 3, 100);
+INSERT INTO LOCACAO VALUES(NEXTVAL('SEQ_LOCACAO'), '01/12/2018', 65, 5, 1000);
+INSERT INTO LOCACAO VALUES(NEXTVAL('SEQ_LOCACAO'), '03/08/2018', 43, 1, 1000);
+INSERT INTO LOCACAO VALUES(NEXTVAL('SEQ_LOCACAO'), '01/02/2018', 27, 31 ,200);
+
+
+-- Selecionando dados
+SELECT
+	*
+FROM
+	locacao;
+
+
+-- Apagando uma tabela
+DROP TABLE rel_locadora;
+
+
+-- Criando uma tabela
+CREATE TABLE relatorio_locadora
+AS
+SELECT
+	locacao.idlocacao
+  , filme.nome 		AS "Filme"
+  , genero.nome 	AS "Genero"
+  , locacao.data 	AS "Data"
+  , locacao.dias 	AS "Dias"
+  , locacao.midia 	AS "Midia"
+FROM
+	genero
+INNER JOIN
+	filme
+ON
+	genero.idgenero = filme.id_genero
+INNER JOIN
+	locacao
+ON
+	locacao.id_filme = filme.idfilme;
+
+
+-- Selecionando dados da tabela
+SELECT
+	*
+FROM
+	relatorio_locadora;
+
+
+-- Select para trazer os registros novos
+SELECT
+	MAX(idlocacao) AS "Relatorio"
+ , (SELECT MAX(idlocacao) FROM locacao) AS "Locacao"
+FROM
+	relatorio_locadora;
+
+
+SELECT
+	locacao.idlocacao
+  , filme.nome 		AS "Filme"
+  , genero.nome 	AS "Genero"
+  , locacao.data 	AS "Data"
+  , locacao.dias 	AS "Dias"
+  , locacao.midia 	AS "Midia"
+FROM
+	genero
+INNER JOIN
+	filme
+ON
+	genero.idgenero = filme.id_genero
+INNER JOIN
+	locacao
+ON
+	locacao.id_filme = filme.idfilme
+WHERE
+	idlocacao NOT IN(SELECT idlocacao FROM relatorio_locadora);
+
+
+-- Inserindo os registros novos
+INSERT INTO relatorio_locadora
+SELECT
+	locacao.idlocacao
+  , filme.nome 		AS "Filme"
+  , genero.nome 	AS "Genero"
+  , locacao.data 	AS "Data"
+  , locacao.dias 	AS "Dias"
+  , locacao.midia 	AS "Midia"
+FROM
+	genero
+INNER JOIN
+	filme
+ON
+	genero.idgenero = filme.id_genero
+INNER JOIN
+	locacao
+ON
+	locacao.id_filme = filme.idfilme
+WHERE
+	idlocacao NOT IN(SELECT idlocacao FROM relatorio_locadora);
