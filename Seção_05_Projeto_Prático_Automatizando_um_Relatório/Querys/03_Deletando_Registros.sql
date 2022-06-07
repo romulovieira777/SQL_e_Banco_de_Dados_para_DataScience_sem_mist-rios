@@ -12,7 +12,7 @@ WHERE
 COPY
 	relatorio_locadora
 TO
-	'D:\WorkSpace\Github\SQL_e_Banco_de_Dados_para_DataScience_sem_mist-rios\relatorio_locadora.csv'
+	'path'
 CSV HEADER;
 
 RETURN OLD;

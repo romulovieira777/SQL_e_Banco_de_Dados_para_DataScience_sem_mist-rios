@@ -24,7 +24,7 @@ WHERE
 	idlocacao NOT IN(SELECT idlocacao FROM relatorio_locadora);
 
 COPY relatorio_locadora 
-TO 'D:\WorkSpace\Github\SQL_e_Banco_de_Dados_para_DataScience_sem_mist-rios\relatorio_locadora.csv'
+TO 'path'
 DELIMITER ';'
 CSV HEADER;
 
@@ -52,8 +52,3 @@ INSERT INTO locacao VALUES(NEXTVAL('SEQ_LOCACAO'), NOW(), 800, 6, 500);
 
 SELECT * FROM locacao;
 SELECT * FROM relatorio_locadora;
-
-
-
-
-
